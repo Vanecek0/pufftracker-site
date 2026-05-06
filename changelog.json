@@ -1,0 +1,11 @@
+{
+  "en": [
+    {"version": "1.0.0", "date": "2025-01-15", "changes": ["Initial release", "Core tracking features", "Multi-language support (en/cs/sk)"]}
+  ],
+  "cs": [
+    {"version": "1.0.0", "date": "2025-01-15", "changes": ["První vydání", "Základní sledování", "Podpora jazyků (en/cs/sk)"]}
+  ],
+  "sk": [
+    {"version": "1.0.0", "date": "2025-01-15", "changes": ["Prvé vydanie", "Základné sledovanie", "Podpora jazykov (en/cs/sk)"]}
+  ]
+}

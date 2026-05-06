@@ -2,99 +2,139 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Puff Tracker</title>
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puff Tracker – Track &amp; Quit Smoking</title>
+  <meta name="description"
+    content="Track your smoking habits, monitor smoke-free days, log cravings, and quit gradually. Available for Android." />
+  <meta name="keywords"
+    content="smoking tracker, quit smoking, nicotine, cigarette tracker, vaping, IQOS, smoke free" />
+  <meta name="theme-color" content="#3B82F6" />
+  <link rel="canonical" href="https://pufftracker.app/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pufftracker.app/" />
+  <meta property="og:title" content="Puff Tracker – Track &amp; Quit Smoking" />
+  <meta property="og:description"
+    content="Track your smoking habits, monitor smoke-free days, log cravings, and quit gradually." />
+  <meta property="og:image" content="https://pufftracker.app/assets/images/main_graphics.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Puff Tracker – Track &amp; Quit Smoking" />
+  <meta name="twitter:description"
+    content="Track your smoking habits, monitor smoke-free days, log cravings, and quit gradually." />
+  <meta name="twitter:image" content="https://pufftracker.app/assets/images/main_graphics.png" />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/images/app_icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/images/app_icon.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Puff Tracker",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "HealthApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://play.google.com/store/apps/details?id=com.pufftracker.app",
+    "description": "Track smoking habits and quit gradually."
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-    <div class="card">
+  <div class="lang-switcher">
+    <button id="lang-select-btn" aria-haspopup="listbox" aria-expanded="false">
+      <span id="lang-current">🇬🇧</span>
+      <svg class="lang-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9l6 6 6-6" />
+      </svg>
+    </button>
+    <ul id="lang-options" role="listbox" hidden>
+      <li role="option" data-lang="cs" aria-selected="false">🇨🇿</li>
+      <li role="option" data-lang="sk" aria-selected="false">🇸🇰</li>
+      <li role="option" data-lang="en" aria-selected="true">🇬🇧</li>
+    </ul>
+  </div>
+  <main>
+
+    <section class="hero">
+      <div class="hero-inner">
         <img class="icon" src="assets/images/app_icon.png" alt="Puff Tracker icon" />
         <h1>Puff Tracker</h1>
         <p class="tagline" id="tagline"></p>
         <div class="description-wrap">
-            <p class="description" id="description"></p>
-            <button class="toggle-btn" id="toggle-btn" onclick="toggleDesc()" aria-expanded="false">Show more</button>
+          <p class="description" id="description"></p>
+          <button class="toggle-btn" id="toggle-btn" onclick="toggleDesc()" aria-expanded="false"></button>
         </div>
-        <a class="btn-play" id="btn-play" href="https://play.google.com/store/apps/details?id=com.pufftracker.app" target="_blank"
-            rel="noopener noreferrer" aria-label="Get it on Google Play">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path
-                    d="M3.18 23.76c.3.17.65.2.98.08l11.04-6.38-2.54-2.54-9.48 8.84zM.5 1.4A1.5 1.5 0 0 0 0 2.5v19a1.5 1.5 0 0 0 .5 1.1l.07.06 10.64-10.64v-.24L.57 1.34.5 1.4zM20.32 10.56l-2.98-1.72-2.84 2.84 2.84 2.84 3-1.74a1.5 1.5 0 0 0 0-2.22zM4.16.16 15.2 6.54l-2.54 2.54L3.18.24a1.1 1.1 0 0 1 .98-.08z" />
-            </svg>
-            <span id="btn-text"></span>
+        <a class="btn-play" id="btn-play" href="https://play.google.com/store/apps/details?id=com.pufftracker.app"
+          target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path
+              d="M3.18 23.76c.3.17.65.2.98.08l11.04-6.38-2.54-2.54-9.48 8.84zM.5 1.4A1.5 1.5 0 0 0 0 2.5v19a1.5 1.5 0 0 0 .5 1.1l.07.06 10.64-10.64v-.24L.57 1.34.5 1.4zM20.32 10.56l-2.98-1.72-2.84 2.84 2.84 2.84 3-1.74a1.5 1.5 0 0 0 0-2.22zM4.16.16 15.2 6.54l-2.54 2.54L3.18.24a1.1 1.1 0 0 1 .98-.08z" />
+          </svg>
+          <span id="btn-text"></span>
         </a>
-    </div>
+        <img class="hero-graphic" src="assets/images/main_graphics.png" alt="Puff Tracker app preview" />
+      </div>
+    </section>
 
-    <script>
-        const translations = {
-            cs: {
-                tagline: "Aplikace pro sledování kuřáckých návyků, statistik a postupného odvykání kouření.",
-                description: `Puff Tracker je aplikace pro všechny, kteří chtějí sledovat své návyky v kouření nebo vapování a postupně s tím přestat. Umožňuje zaznamenávat vaši spotřebu (cigaret, doutníků, IQOS, vodní dýmky a elektronické cigarety). Ke každému záznamu můžete přidat čas, typ a poznámku a snadno upravovat nebo mazat svou historii.
-<br><br>
-Sleduje váš pokrok, včetně počtu dní bez kouření a ušetřených peněz. Na úvodní obrazovce se zobrazují všechny klíčové statistiky a přehledný kalendář.
-<br><br>
-Aplikace vám také umožňuje zaznamenávat situace spojené s touhou po nikotinu nebo nepříjemnými pocity a přidávat aktivity, které vám pomohly je zvládnout (například procházky, dechová cvičení nebo relaxace), zatímco statistiky ukazují, co pro vás funguje nejlépe.
-<br><br>
-Nabízí denní tipy zaměřené na zvládání touhy po nikotinu, zlepšení zdraví a podporu duševní pohody.
-<br><br>
-Aplikace je k dispozici v češtině, slovenštině a angličtině.`,
-                btn: "Získejte na Google Play",
-            },
-            sk: {
-                tagline: "Aplikácia na sledovanie fajčiarskych návykov, štatistík a postupného odvykania od fajčenia.",
-                description: `Puff Tracker je aplikácia pre všetkých, ktorí chcú sledovať svoje návyky pri fajčení alebo vapovaní a postupne s tým prestať. Umožňuje zaznamenávať vašu spotrebu (cigariet, cigár, IQOS, vodnej fajky a elektronické cigarety). Ku každému záznamu môžete pridať čas, typ a poznámku a jednoducho upravovať alebo mazať svoju históriu.
-<br><br>
-Sleduje váš pokrok, vrátane počtu dní bez fajčenia a ušetrených peňazí. Na úvodnej obrazovke sa zobrazujú všetky kľúčové štatistiky a prehľadný kalendár.
-<br><br>
-Aplikácia vám tiež umožňuje zaznamenávať situácie spojené s túžbou po nikotíne alebo nepríjemnými pocitmi a pridávať aktivity, ktoré vám pomohli ich zvládnuť (napríklad prechádzky, dychové cvičenia alebo relaxácia), pričom štatistiky ukazujú, čo pre vás funguje najlepšie.
-<br><br>
-Ponúka denné tipy zamerané na zvládanie túžby po nikotíne, zlepšenie zdravia a podporu duševnej pohody.
-<br><br>
-Aplikácia je dostupná v češtine, slovenčine a angličtine.`,
-                btn: "Získajte na Google Play",
-            },
-            en: {
-                tagline: "An app for tracking smoking habits, statistics, and gradual smoking cessation.",
-                description: `Puff Tracker is an app for anyone who wants to keep track of their smoking or vaping habits and gradually quit. It allows you to record your consumption (cigarettes, cigars, IQOS, hookah, and e-cigarettes). For each entry, you can add the time, type, and a note, and easily edit or delete your history.
-<br><br>
-It tracks your progress, including the number of smoke-free days and money saved. The home screen shows all key statistics and a clear calendar view.
-<br><br>
-The app also lets you log situations related to nicotine cravings or discomfort and add an activity that helped you manage them (such as walking, breathing exercises, or relaxation), while statistics show what works best for you.
-<br><br>
-It offers daily tips focused on managing cravings, improving health, and supporting mental well-being.
-<br><br>
-The app is available in Czech, Slovak, and English.`,
-                btn: "Get it on Google Play",
-            },
-        };
+    <section class="features">
+      <div class="section-inner">
+        <h2 class="section-title" id="features-title"></h2>
+        <div class="features-grid">
+          <div class="feature">
+            <div class="feature-icon">📊</div>
+            <h3 id="f1-title"></h3>
+            <p id="f1-desc"></p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📅</div>
+            <h3 id="f2-title"></h3>
+            <p id="f2-desc"></p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">💭</div>
+            <h3 id="f3-title"></h3>
+            <p id="f3-desc"></p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">💡</div>
+            <h3 id="f4-title"></h3>
+            <p id="f4-desc"></p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        const lang = navigator.language?.slice(0, 2).toLowerCase();
-        const t = translations[lang] ?? translations.en;
+    <section class="screenshots">
+      <div class="section-inner">
+        <h2 class="section-title" id="screenshots-title"></h2>
+      </div>
+      <div class="screenshots-track">
+        <div class="phone">
+          <img src="assets/images/screenshots/1.png" alt="Puff Tracker screen 1" loading="lazy" />
+        </div>
+        <div class="phone">
+          <img src="assets/images/screenshots/2.png" alt="Puff Tracker screen 2" loading="lazy" />
+        </div>
+        <div class="phone">
+          <img src="assets/images/screenshots/3.png" alt="Puff Tracker screen 3" loading="lazy" />
+        </div>
+      </div>
+    </section>
 
-        document.getElementById("tagline").textContent = t.tagline;
-        document.getElementById("description").innerHTML = t.description;
-        document.getElementById("btn-text").textContent = t.btn;
-        document.getElementById("btn-play").setAttribute("aria-label", t.btn);
-        document.documentElement.lang = lang in translations ? lang : "en";
+    <footer>
+      <p id="footer-copy"></p>
+    </footer>
 
-        const expandLabel = { cs: "Zobrazit více", sk: "Zobraziť viac", en: "Show more" };
-        const collapseLabel = { cs: "Zobrazit méně", sk: "Zobraziť menej", en: "Show less" };
-        const activeLang = lang in translations ? lang : "en";
+  </main>
 
-        const btn = document.getElementById("toggle-btn");
-        btn.textContent = expandLabel[activeLang];
-        btn.setAttribute('aria-label', expandLabel[activeLang]);
-
-        function toggleDesc() {
-            const desc = document.getElementById("description");
-            const expanded = desc.classList.toggle("expanded");
-            btn.textContent = expanded ? collapseLabel[activeLang] : expandLabel[activeLang];
-            btn.setAttribute("aria-expanded", expanded ? "true" : "false");
-        }
-        window.toggleDesc = toggleDesc;
-    </script>
+  <script src="js/app.js"></script>
 </body>
 
 </html>
